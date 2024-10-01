@@ -1,4 +1,4 @@
-module github.com/pcherednichenko/spam_fighter_bot
+module github.com/sersad/spam_fighter_bot
 
 go 1.16
 

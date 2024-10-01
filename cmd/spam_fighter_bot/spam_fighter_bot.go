@@ -6,7 +6,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/pcherednichenko/spam_fighter_bot/internal/app"
+	"github.com/sersad/spam_fighter_bot/internal/app"
 )
 
 func main() {
@@ -24,7 +24,7 @@ func main() {
 		w.WriteHeader(http.StatusOK)
 	})
 	go func() {
-		err := http.ListenAndServe(":80", nil)
+		err := http.ListenAndServe(":88", nil)
 		if err != nil {
 			sugaredLogger.Fatal("error while creating health handler", err)
 		}

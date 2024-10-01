@@ -11,7 +11,7 @@ import (
 	tb "gopkg.in/tucnak/telebot.v2"
 	ntw "moul.io/number-to-words"
 
-	"github.com/pcherednichenko/spam_fighter_bot/internal/app/data"
+	"github.com/sersad/spam_fighter_bot/internal/app/data"
 )
 
 const waitForAnAnswerTime = time.Minute * 3
@@ -60,10 +60,7 @@ func excludedUser(u *tb.User) bool {
 	return false
 }
 
-var excludedIDs = []int64{
-	-1001526889445,
-	-1001673858771,
-}
+var excludedIDs = []int64{}
 
 func excludedChat(c *tb.Chat) bool {
 	for _, exID := range excludedIDs {
@@ -129,7 +126,7 @@ func getWelcomeMessageText(username, chatName,
 	welcomeText := "Hi %s, welcome to the %s! " +
 		"To make sure that you aren't a bot, please answer " +
 		"the following question by replying with the result as a number: %s multiplied by %s"
-	if chatNameContainsCyrillic(chatName) {
+	if chatNameContainsCyrillic(chatName) || strings.Contains(chatName, "zabbix") || strings.Contains(chatName, "Test") {
 		firstNumText, secondNumText = fistNumberInWordsRu, secondNumberInWordsRu
 		welcomeText = "%s Добро пожаловать в чат %s! " +
 			"Напишите числом сколько будет: %s умножить на %s, чтобы проверить, что вы не бот"

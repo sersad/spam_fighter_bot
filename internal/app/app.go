@@ -6,8 +6,8 @@ import (
 	"go.uber.org/zap"
 	tb "gopkg.in/tucnak/telebot.v2"
 
-	"github.com/pcherednichenko/spam_fighter_bot/internal/app/data"
-	"github.com/pcherednichenko/spam_fighter_bot/internal/app/handler"
+	"github.com/sersad/spam_fighter_bot/internal/app/data"
+	"github.com/sersad/spam_fighter_bot/internal/app/handler"
 )
 
 func StartBot(l *zap.SugaredLogger, token string) {

@@ -4,7 +4,7 @@ import (
 	"go.uber.org/zap"
 	tb "gopkg.in/tucnak/telebot.v2"
 
-	"github.com/pcherednichenko/spam_fighter_bot/internal/app/data"
+	"github.com/sersad/spam_fighter_bot/internal/app/data"
 )
 
 func Other(l *zap.SugaredLogger, b *tb.Bot, s data.Storage) func(m *tb.Message) {
