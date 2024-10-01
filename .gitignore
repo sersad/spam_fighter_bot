@@ -1,0 +1,10 @@
+.idea
+.python-version
+.ansvault
+.DS_Store
+passwords.*
+password.*
+__pycache__
+.vscode
+.DS_Store
+*.crt
