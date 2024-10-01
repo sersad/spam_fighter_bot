@@ -6,5 +6,4 @@ passwords.*
 password.*
 __pycache__
 .vscode
-.DS_Store
 *.crt

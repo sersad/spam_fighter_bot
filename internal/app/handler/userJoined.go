@@ -57,6 +57,9 @@ func excludedUser(u *tb.User) bool {
 	if u.Username == "combot" {
 		return true
 	}
+	if u.Username == "AntiServiceMessageBot" {
+		return true
+	}
 	return false
 }
 
