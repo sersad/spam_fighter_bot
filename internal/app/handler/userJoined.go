@@ -31,12 +31,14 @@ func UserJoined(l *zap.SugaredLogger, b *tb.Bot, s data.Storage) func(m *tb.Mess
 		if excludedChat(m.Chat) {
 			return
 		}
+		l.Info(m.UserJoined)
 		if excludedUser(m.UserJoined) {
 			return
 		}
 		username := getUsername(m.UserJoined)
 		welcomeMessageText := getWelcomeMessageText(username, m.Chat.Title,
 			fistNumberInWordsEn, secondNumberInWordsEn, fistNumberInWordsRu, secondNumberInWordsRu)
+		l.Info(welcomeMessageText)
 		welcomeMessage, err := b.Send(m.Chat, welcomeMessageText)
 		if err != nil {
 			l.Error("error while sending welcome message", err)

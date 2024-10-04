@@ -27,6 +27,7 @@ func Text(l *zap.SugaredLogger, b *tb.Bot, s data.Storage) func(m *tb.Message) {
 		if !ok {
 			return
 		}
+		l.Info(m.Text)
 		if strings.TrimSpace(m.Text) != strconv.Itoa(info.RightAnswer) {
 			err := b.Delete(m)
 			if err != nil {
