@@ -42,7 +42,7 @@ func UserJoined(l *zap.SugaredLogger, b *tb.Bot, s data.Storage) func(m *tb.Mess
 			l.Error("error while sending welcome message", err)
 			return
 		}
-		s.Add(m.Chat, m.UserJoined, data.Info{WelcomeMessage: welcomeMessage, RightAnswer: firstNumber * secondNumber})
+		s.Add(m.Chat, m.UserJoined, data.Info{WelcomeMessage: welcomeMessage, RightAnswer: firstNumber*secondNumber + 7})
 		// Goroutine to delete message after waitForAnAnswerTime minutes
 		// and block user if he or she still in the list
 		go checkAndBanUser(l, b, welcomeMessage, s, m, username)
@@ -128,11 +128,11 @@ func getWelcomeMessageText(username, chatName,
 	firstNumText, secondNumText := fistNumberInWordsEn, secondNumberInWordsEn
 	welcomeText := "Hi %s, welcome to the %s! " +
 		"To make sure that you aren't a bot, please answer " +
-		"the following question by replying with the result as a number: %s multiplied by %s"
+		"the following question by replying with the result as a number: %s multiplied by %s and add the current LTS number"
 	if chatNameContainsCyrillic(chatName) || strings.Contains(chatName, "zabbix") || strings.Contains(chatName, "Test") {
 		firstNumText, secondNumText = fistNumberInWordsRu, secondNumberInWordsRu
 		welcomeText = "%s Добро пожаловать в чат %s! " +
-			"Напишите числом сколько будет: %s умножить на %s, чтобы проверить, что вы не бот"
+			"Напишите числом сколько будет: %s умножить на %s и прибавить номер актуальной LTS, чтобы проверить, что вы не бот"
 	}
 	return fmt.Sprintf(
 		welcomeText,
